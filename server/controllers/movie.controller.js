@@ -27,7 +27,12 @@ export const searchMovies = async (req, res, next) => {
     const data = await fetchWithCache(`search_${q}_${page}_${year}`, params)
 
     if (data.Response === 'False') {
-      return res.status(404).json({ success: false, message: data.Error })
+      return res.status(200).json({ 
+        success: true, 
+        results: [],
+        totalResults: 0,
+        message: data.Error 
+      })
     }
 
     res.status(200).json({

@@ -2,16 +2,11 @@ import React, { useState } from 'react';
 import { BiStar } from 'react-icons/bi';
 
 const STAR_LABELS = {
-  1: 'Appalling',
-  2: 'Horrible',
-  3: 'Very Bad',
-  4: 'Bad',
-  5: 'Average',
-  6: 'Fine',
-  7: 'Good',
-  8: 'Very Good',
-  9: 'Excellent',
-  10: 'Masterpiece',
+  1: 'Poor',
+  2: 'Fair',
+  3: 'Good',
+  4: 'Very Good',
+  5: 'Masterpiece',
 };
 
 const StarPicker = ({ rating, onChange, readonly = false }) => {
@@ -22,7 +17,7 @@ const StarPicker = ({ rating, onChange, readonly = false }) => {
   return (
     <div className="flex flex-col space-y-2 select-none">
       <div className="flex items-center space-x-1.5">
-        {[...Array(10)].map((_, index) => {
+        {[...Array(5)].map((_, index) => {
           const starValue = index + 1;
           const isActive = starValue <= displayRating;
           
